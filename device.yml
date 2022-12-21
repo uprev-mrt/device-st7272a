@@ -1,0 +1,101 @@
+---
+name: st7272a
+category: Device/Display
+description: Display driver IC
+datasheet: https://www.crystalfontz.com/controllers/Sitronix/ST7272A/458/
+mfr: Sitronix
+
+prefix: st7272a  #prefix used in code generation
+bus: I2C, SPI    # defines the buses that can be used to access registers 
+i2c_addr: 0x3C   # defines the I2C device address (if device uses I2C)
+
+###########################################################################################################
+#                                   REGISTERS                                                             #
+###########################################################################################################
+
+registers:
+    - DISP_CTRL:            { addr: 0x10 , type: uint8_t, perm: rw, default: 0x08, desc: Display Control}                
+    - CONTRAST:             { addr: 0x11 , type: uint8_t, perm: rw, default: 0x40, desc: Contrast}    
+    - SUB_CONTRAST_R:       { addr: 0x12 , type: uint8_t, perm: rw, default: 0x40, desc: Contrast sub R}    
+    - SUB_CONTRAST_B:       { addr: 0x13 , type: uint8_t, perm: rw, default: 0x40, desc: Contrast sub B}    
+    - BRIGHTNESS:           { addr: 0x14 , type: uint8_t, perm: rw, default: 0x40, desc: Brightness}    
+    - SUB_BRIGHTNESS_R:     { addr: 0x15 , type: uint8_t, perm: rw, default: 0x40, desc: Brightness R}    
+    - SUB_BRIGHTNESS_B:     { addr: 0x16 , type: uint8_t, perm: rw, default: 0x40, desc: Brightness B}    
+    - H_BLANKING:           { addr: 0x17 , type: uint8_t, perm: rw, default: 0x40, desc: Brightness B}    
+    - V_BLANKING:           { addr: 0x18 , type: uint8_t, perm: rw, default: 0x40, desc: Brightness B}   
+    - DISPLAY_MODE:         { addr: 0x19 , type: uint8_t, perm: rw, default: 0x6D, desc: Display Mode settings} 
+    - BIST_FNCTN_SETTING:   { addr: 0x1C , type: uint8_t, perm: rw, default: 0x38, desc: BIST Fumction Setting}   
+
+             
+
+
+###########################################################################################################
+#                                   Fields                                                                #
+###########################################################################################################
+fields:
+    - DISP_CTRL: 
+        - GRB:  {bit: 3, desc: Resets all register settings}
+        - DISP:
+            bit: 0
+            desc: Display Mode 
+            values:
+                - NORMAL: {val: 1, desc: Normal display mode }
+                - STANDBY: {val: 0, desc: Standby mode }
+
+    - DISPLAY_MODE:  #create flags and fields in the DUMMY register
+
+        - VDPOL: 
+                bit: 3 
+                desc: VSYNC Polarity
+                values: 
+                    - POS: {val: 0, desc: Positive Polarity}
+                    - NEG: {val: 1, desc: Negative Polarity}
+
+        - HDPOL: 
+            bit: 2 
+            desc: HSYNC Polarity
+            values: 
+                - POS: {val: 0, desc: Positive Polarity}
+                - NEG: {val: 1, desc: Positive Polarity}
+                
+        - DEPOL: 
+            bit: 1
+            desc: DE Polarity
+            values: 
+                - POS: {val: 0, desc: Positive Polarity}
+                - NEG: {val: 1, desc: Positive Polarity}
+
+        - DCLKPOL: 
+            bit: 0 
+            desc: DCLK Polarity
+            values: 
+                - POS: {val: 0, desc: Positive Polarity}
+                - NEG: {val: 1, desc: Positive Polarity}
+
+    - BIST_FNCTN_SETTING:
+
+        - PICSEC:
+            mask: 0x60
+            desc: Time interval of test pattern 
+            values: 
+                - 500MS: {val: 0, desc: 500 ms}
+                - 1000MS: {val: 1, desc: 1000 ms}
+                - 1500MS: {val: 2, desc: 1500 ms}
+                - 2000MS: {val: 3, desc: 2000 ms}
+
+        - AUTOBIST: {bit: 3, desc: Auto display pattern control in the BIST mode }
+
+
+
+###########################################################################################################
+#                                   Preset Configs                                                        #
+###########################################################################################################
+configs:
+    - default:
+        desc: Standard setup
+        registers:
+            -  DISP_CTRL: {DISP: NORMAL}
+
+
+
+
