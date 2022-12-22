@@ -63,7 +63,7 @@ mrt_status_t st7272a_init_spi(st7272a_t* dev, mrt_spi_handle_t spi, mrt_gpio_t c
     /*user-block-spi-start*/
 
     //Use custom read function because we have to set the 'R' read bit
-    dev->mRegDev.fRead = &st272a_read_spi; 
+    dev->mRegDev.fRead = &st7272a_read_spi; 
 
     /*user-block-spi-end*/
 
@@ -75,7 +75,7 @@ mrt_status_t st7272a_test(st7272a_t* dev)
     mrt_status_t status = MRT_STATUS_ERROR;
     /*user-block-test-start*/
 
-    if( st272a_read_reg(dev, &dev->mBistFnctnSetting) == ST272A_BIST_FNCTN_SETTING_DEFAULT)
+    if( st7272a_read_reg(dev, &dev->mBistFnctnSetting) == ST7272A_BIST_FNCTN_SETTING_DEFAULT)
     {
         status = MRT_STATUS_OK;
     }
@@ -88,7 +88,7 @@ mrt_status_t st7272a_test(st7272a_t* dev)
 /*user-block-bottom-start*/
 
 
-mrt_status_t st272a_read_spi(mrt_regdev_t* dev, uint32_t addr, uint8_t* data, int len)
+mrt_status_t st7272a_read_spi(mrt_regdev_t* dev, uint32_t addr, uint8_t* data, int len)
 {
   mrt_status_t status;
 

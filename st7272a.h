@@ -84,7 +84,7 @@ mrt_status_t st7272a_test(st7272a_t* dev);
 
 /*user-block-bottom-start*/
 
-mrt_status_t st272a_read_spi(mrt_regdev_t* dev, uint32_t addr, uint8_t* data, int len);
+mrt_status_t st7272a_read_spi(mrt_regdev_t* dev, uint32_t addr, uint8_t* data, int len);
 /*user-block-bottom-end*/
 
 #ifdef __cplusplus

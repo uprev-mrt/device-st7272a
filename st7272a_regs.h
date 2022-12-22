@@ -341,6 +341,8 @@
  * @param dev ptr to st7272a device
  */
 #define ST7272A_LOAD_CONFIG_DEFAULT(dev) \
-st7272a_write_reg( (dev), &(dev)->mDispCtrl, 0x01); /* DISP: NORMAL */               \
+st7272a_write_reg( (dev), &(dev)->mDispCtrl, 0x00); /* DISP: STANDBY , GRB: 0 */     \
+MRT_DELAY_MS(100);                               /* Delay for DISP_CTRL */ \
+st7272a_write_reg( (dev), &(dev)->mDispCtrl, 0x09); /* DISP: NORMAL , GRB: 1 */      \
 
 

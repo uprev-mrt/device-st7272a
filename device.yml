@@ -94,7 +94,9 @@ configs:
     - default:
         desc: Standard setup
         registers:
-            -  DISP_CTRL: {DISP: NORMAL}
+            -  DISP_CTRL: {DISP: STANDBY, GRB: 0, delay: 100}
+            -  DISP_CTRL: {DISP: NORMAL, GRB: 1}
+            
 
 
 
