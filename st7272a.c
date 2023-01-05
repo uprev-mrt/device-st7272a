@@ -106,7 +106,6 @@ mrt_status_t st7272a_read_spi(mrt_regdev_t* dev, uint32_t addr, uint8_t* data, i
   MRT_GPIO_WRITE(dev->mChipSelect, MRT_HIGH);
 
   
-
   return status;
 }
 

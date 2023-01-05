@@ -34,75 +34,90 @@
 
 /* DISP_CTRL Register Fields */
     /* DISP_CTRL -> Flags */
-    #define ST7272A__GRB                                           0x08 /* Resets all register settings */
+    #define ST7272A_DISP_CTRL_GRB                                  0x08 /* Resets all register settings */
     /* DISP_CTRL -> DISP */
-    #define ST7272A__DISP_FIELD_MASK                               0x01 /* Display Mode */
-    #define ST7272A__DISP_FIELD_OFFSET                             0x00
-      #define ST7272A__DISP_NORMAL                                 0x01 /* Normal display mode */
-      #define ST7272A__DISP_STANDBY                                0x00 /* Standby mode */
+    #define ST7272A_DISP_CTRL_DISP_FIELD_MASK                      0x01 /* Display Mode */
+    #define ST7272A_DISP_CTRL_DISP_FIELD_OFFSET                    0x00
+      #define ST7272A_DISP_CTRL_DISP_NORMAL                        0x01 /* Normal display mode */
+      #define ST7272A_DISP_CTRL_DISP_STANDBY                       0x00 /* Standby mode */
 /* CONTRAST Register Fields */
     /* CONTRAST -> CONTRAST */
-    #define ST7272A__CONTRAST_FIELD_MASK                           0xFF /* Contrast */
-    #define ST7272A__CONTRAST_FIELD_OFFSET                         0x00
+    #define ST7272A_CONTRAST_FIELD_MASK                            0xFF /* Contrast */
+    #define ST7272A_CONTRAST_FIELD_OFFSET                          0x00
 /* SUB_CONTRAST_R Register Fields */
     /* SUB_CONTRAST_R -> SUB_CONTRAST_R */
-    #define ST7272A__SUB_CONTRAST_R_FIELD_MASK                     0xFF /* Contrast sub R */
-    #define ST7272A__SUB_CONTRAST_R_FIELD_OFFSET                   0x00
+    #define ST7272A_SUB_CONTRAST_R_FIELD_MASK                      0xFF /* Contrast sub R */
+    #define ST7272A_SUB_CONTRAST_R_FIELD_OFFSET                    0x00
 /* SUB_CONTRAST_B Register Fields */
     /* SUB_CONTRAST_B -> SUB_CONTRAST_B */
-    #define ST7272A__SUB_CONTRAST_B_FIELD_MASK                     0xFF /* Contrast sub B */
-    #define ST7272A__SUB_CONTRAST_B_FIELD_OFFSET                   0x00
+    #define ST7272A_SUB_CONTRAST_B_FIELD_MASK                      0xFF /* Contrast sub B */
+    #define ST7272A_SUB_CONTRAST_B_FIELD_OFFSET                    0x00
 /* BRIGHTNESS Register Fields */
     /* BRIGHTNESS -> BRIGHTNESS */
-    #define ST7272A__BRIGHTNESS_FIELD_MASK                         0xFF /* Brightness */
-    #define ST7272A__BRIGHTNESS_FIELD_OFFSET                       0x00
+    #define ST7272A_BRIGHTNESS_FIELD_MASK                          0xFF /* Brightness */
+    #define ST7272A_BRIGHTNESS_FIELD_OFFSET                        0x00
 /* SUB_BRIGHTNESS_R Register Fields */
     /* SUB_BRIGHTNESS_R -> SUB_BRIGHTNESS_R */
-    #define ST7272A__SUB_BRIGHTNESS_R_FIELD_MASK                   0xFF /* Brightness R */
-    #define ST7272A__SUB_BRIGHTNESS_R_FIELD_OFFSET                 0x00
+    #define ST7272A_SUB_BRIGHTNESS_R_FIELD_MASK                    0xFF /* Brightness R */
+    #define ST7272A_SUB_BRIGHTNESS_R_FIELD_OFFSET                  0x00
 /* SUB_BRIGHTNESS_B Register Fields */
     /* SUB_BRIGHTNESS_B -> SUB_BRIGHTNESS_B */
-    #define ST7272A__SUB_BRIGHTNESS_B_FIELD_MASK                   0xFF /* Brightness B */
-    #define ST7272A__SUB_BRIGHTNESS_B_FIELD_OFFSET                 0x00
+    #define ST7272A_SUB_BRIGHTNESS_B_FIELD_MASK                    0xFF /* Brightness B */
+    #define ST7272A_SUB_BRIGHTNESS_B_FIELD_OFFSET                  0x00
 /* H_BLANKING Register Fields */
     /* H_BLANKING -> H_BLANKING */
-    #define ST7272A__H_BLANKING_FIELD_MASK                         0xFF /* Brightness B */
-    #define ST7272A__H_BLANKING_FIELD_OFFSET                       0x00
+    #define ST7272A_H_BLANKING_FIELD_MASK                          0xFF /* Brightness B */
+    #define ST7272A_H_BLANKING_FIELD_OFFSET                        0x00
 /* V_BLANKING Register Fields */
     /* V_BLANKING -> V_BLANKING */
-    #define ST7272A__V_BLANKING_FIELD_MASK                         0xFF /* Brightness B */
-    #define ST7272A__V_BLANKING_FIELD_OFFSET                       0x00
+    #define ST7272A_V_BLANKING_FIELD_MASK                          0xFF /* Brightness B */
+    #define ST7272A_V_BLANKING_FIELD_OFFSET                        0x00
 /* DISPLAY_MODE Register Fields */
+    /* DISPLAY_MODE -> MVA_TN */
+    #define ST7272A_DISPLAY_MODE_MVA_TN_FIELD_MASK                 0x80 /* TN v VA mode select */
+    #define ST7272A_DISPLAY_MODE_MVA_TN_FIELD_OFFSET               0x07
+      #define ST7272A_DISPLAY_MODE_MVA_TN_TN                       0x00 /* TN mode */
+      #define ST7272A_DISPLAY_MODE_MVA_TN_VA                       0x01 /* VA mode */
+    /* DISPLAY_MODE -> VDIR */
+    #define ST7272A_DISPLAY_MODE_VDIR_FIELD_MASK                   0x40 /* Vertical Scan Direction */
+    #define ST7272A_DISPLAY_MODE_VDIR_FIELD_OFFSET                 0x06
+      #define ST7272A_DISPLAY_MODE_VDIR_B2T                        0x00 /* Bottom To Top */
+      #define ST7272A_DISPLAY_MODE_VDIR_T2B                        0x01 /* Top to bottom */
+    /* DISPLAY_MODE -> HDIR */
+    #define ST7272A_DISPLAY_MODE_HDIR_FIELD_MASK                   0x20 /* Horizontal Scan Direction */
+    #define ST7272A_DISPLAY_MODE_HDIR_FIELD_OFFSET                 0x05
+      #define ST7272A_DISPLAY_MODE_HDIR_R2L                        0x00 /* Right to left */
+      #define ST7272A_DISPLAY_MODE_HDIR_L2R                        0x01 /* Left to Right */
     /* DISPLAY_MODE -> VDPOL */
-    #define ST7272A__VDPOL_FIELD_MASK                              0x08 /* VSYNC Polarity */
-    #define ST7272A__VDPOL_FIELD_OFFSET                            0x03
-      #define ST7272A__VDPOL_POS                                   0x00 /* Positive Polarity */
-      #define ST7272A__VDPOL_NEG                                   0x01 /* Negative Polarity */
+    #define ST7272A_DISPLAY_MODE_VDPOL_FIELD_MASK                  0x08 /* VSYNC Polarity */
+    #define ST7272A_DISPLAY_MODE_VDPOL_FIELD_OFFSET                0x03
+      #define ST7272A_DISPLAY_MODE_VDPOL_POS                       0x00 /* Positive Polarity */
+      #define ST7272A_DISPLAY_MODE_VDPOL_NEG                       0x01 /* Negative Polarity */
     /* DISPLAY_MODE -> HDPOL */
-    #define ST7272A__HDPOL_FIELD_MASK                              0x04 /* HSYNC Polarity */
-    #define ST7272A__HDPOL_FIELD_OFFSET                            0x02
-      #define ST7272A__HDPOL_POS                                   0x00 /* Positive Polarity */
-      #define ST7272A__HDPOL_NEG                                   0x01 /* Positive Polarity */
+    #define ST7272A_DISPLAY_MODE_HDPOL_FIELD_MASK                  0x04 /* HSYNC Polarity */
+    #define ST7272A_DISPLAY_MODE_HDPOL_FIELD_OFFSET                0x02
+      #define ST7272A_DISPLAY_MODE_HDPOL_POS                       0x00 /* Positive Polarity */
+      #define ST7272A_DISPLAY_MODE_HDPOL_NEG                       0x01 /* Positive Polarity */
     /* DISPLAY_MODE -> DEPOL */
-    #define ST7272A__DEPOL_FIELD_MASK                              0x02 /* DE Polarity */
-    #define ST7272A__DEPOL_FIELD_OFFSET                            0x01
-      #define ST7272A__DEPOL_POS                                   0x00 /* Positive Polarity */
-      #define ST7272A__DEPOL_NEG                                   0x01 /* Positive Polarity */
+    #define ST7272A_DISPLAY_MODE_DEPOL_FIELD_MASK                  0x02 /* DE Polarity */
+    #define ST7272A_DISPLAY_MODE_DEPOL_FIELD_OFFSET                0x01
+      #define ST7272A_DISPLAY_MODE_DEPOL_POS                       0x00 /* Positive Polarity */
+      #define ST7272A_DISPLAY_MODE_DEPOL_NEG                       0x01 /* Positive Polarity */
     /* DISPLAY_MODE -> DCLKPOL */
-    #define ST7272A__DCLKPOL_FIELD_MASK                            0x01 /* DCLK Polarity */
-    #define ST7272A__DCLKPOL_FIELD_OFFSET                          0x00
-      #define ST7272A__DCLKPOL_POS                                 0x00 /* Positive Polarity */
-      #define ST7272A__DCLKPOL_NEG                                 0x01 /* Positive Polarity */
+    #define ST7272A_DISPLAY_MODE_DCLKPOL_FIELD_MASK                0x01 /* DCLK Polarity */
+    #define ST7272A_DISPLAY_MODE_DCLKPOL_FIELD_OFFSET              0x00
+      #define ST7272A_DISPLAY_MODE_DCLKPOL_POS                     0x00 /* Positive Polarity */
+      #define ST7272A_DISPLAY_MODE_DCLKPOL_NEG                     0x01 /* Positive Polarity */
 /* BIST_FNCTN_SETTING Register Fields */
     /* BIST_FNCTN_SETTING -> Flags */
-    #define ST7272A__AUTOBIST                                      0x08 /* Auto display pattern control in the BIST mode */
+    #define ST7272A_BIST_FNCTN_SETTING_AUTOBIST                    0x08 /* Auto display pattern control in the BIST mode */
     /* BIST_FNCTN_SETTING -> PICSEC */
-    #define ST7272A__PICSEC_FIELD_MASK                             0x60 /* Time interval of test pattern */
-    #define ST7272A__PICSEC_FIELD_OFFSET                           0x05
-      #define ST7272A__PICSEC_500MS                                0x00 /* 500 ms */
-      #define ST7272A__PICSEC_1000MS                               0x01 /* 1000 ms */
-      #define ST7272A__PICSEC_1500MS                               0x02 /* 1500 ms */
-      #define ST7272A__PICSEC_2000MS                               0x03 /* 2000 ms */
+    #define ST7272A_BIST_FNCTN_SETTING_PICSEC_FIELD_MASK           0x60 /* Time interval of test pattern */
+    #define ST7272A_BIST_FNCTN_SETTING_PICSEC_FIELD_OFFSET         0x05
+      #define ST7272A_BIST_FNCTN_SETTING_PICSEC_500MS              0x00 /* 500 ms */
+      #define ST7272A_BIST_FNCTN_SETTING_PICSEC_1000MS             0x01 /* 1000 ms */
+      #define ST7272A_BIST_FNCTN_SETTING_PICSEC_1500MS             0x02 /* 1500 ms */
+      #define ST7272A_BIST_FNCTN_SETTING_PICSEC_2000MS             0x03 /* 2000 ms */
 
 /*******************************************************************************
   Default Values                                                                              
@@ -163,75 +178,96 @@
  * @return ST7272A_DISP_CTRL_DISP_NORMAL Normal display mode
  * @return ST7272A_DISP_CTRL_DISP_STANDBY Standby mode
  */
-#define st7272a_get_disp_ctrl_disp(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mDispCtrl, ST7272A__DISP_FIELD_MASK )
+#define st7272a_get_disp_ctrl_disp(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mDispCtrl, ST7272A_DISP_CTRL_DISP_FIELD_MASK )
 /**
  * @brief reads the CONTRAST field from the CONTRAST register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_get_contrast(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mContrast, ST7272A__CONTRAST_FIELD_MASK )
+#define st7272a_get_contrast(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mContrast, ST7272A_CONTRAST_FIELD_MASK )
 /**
  * @brief reads the SUB_CONTRAST_R field from the SUB_CONTRAST_R register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_get_sub_contrast_r(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mSubContrastR, ST7272A__SUB_CONTRAST_R_FIELD_MASK )
+#define st7272a_get_sub_contrast_r(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mSubContrastR, ST7272A_SUB_CONTRAST_R_FIELD_MASK )
 /**
  * @brief reads the SUB_CONTRAST_B field from the SUB_CONTRAST_B register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_get_sub_contrast_b(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mSubContrastB, ST7272A__SUB_CONTRAST_B_FIELD_MASK )
+#define st7272a_get_sub_contrast_b(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mSubContrastB, ST7272A_SUB_CONTRAST_B_FIELD_MASK )
 /**
  * @brief reads the BRIGHTNESS field from the BRIGHTNESS register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_get_brightness(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mBrightness, ST7272A__BRIGHTNESS_FIELD_MASK )
+#define st7272a_get_brightness(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mBrightness, ST7272A_BRIGHTNESS_FIELD_MASK )
 /**
  * @brief reads the SUB_BRIGHTNESS_R field from the SUB_BRIGHTNESS_R register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_get_sub_brightness_r(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mSubBrightnessR, ST7272A__SUB_BRIGHTNESS_R_FIELD_MASK )
+#define st7272a_get_sub_brightness_r(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mSubBrightnessR, ST7272A_SUB_BRIGHTNESS_R_FIELD_MASK )
 /**
  * @brief reads the SUB_BRIGHTNESS_B field from the SUB_BRIGHTNESS_B register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_get_sub_brightness_b(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mSubBrightnessB, ST7272A__SUB_BRIGHTNESS_B_FIELD_MASK )
+#define st7272a_get_sub_brightness_b(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mSubBrightnessB, ST7272A_SUB_BRIGHTNESS_B_FIELD_MASK )
 /**
  * @brief reads the H_BLANKING field from the H_BLANKING register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_get_h_blanking(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mHBlanking, ST7272A__H_BLANKING_FIELD_MASK )
+#define st7272a_get_h_blanking(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mHBlanking, ST7272A_H_BLANKING_FIELD_MASK )
 /**
  * @brief reads the V_BLANKING field from the V_BLANKING register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_get_v_blanking(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mVBlanking, ST7272A__V_BLANKING_FIELD_MASK )
+#define st7272a_get_v_blanking(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mVBlanking, ST7272A_V_BLANKING_FIELD_MASK )
+/**
+ * @brief reads the MVA_TN field from the DISPLAY_MODE register 
+ * @param dev ptr to st7272a device
+ * @return ST7272A_DISPLAY_MODE_MVA_TN_TN TN mode
+ * @return ST7272A_DISPLAY_MODE_MVA_TN_VA VA mode
+ */
+#define st7272a_get_display_mode_mva_tn(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A_DISPLAY_MODE_MVA_TN_FIELD_MASK )
+/**
+ * @brief reads the VDIR field from the DISPLAY_MODE register 
+ * @param dev ptr to st7272a device
+ * @return ST7272A_DISPLAY_MODE_VDIR_B2T Bottom To Top
+ * @return ST7272A_DISPLAY_MODE_VDIR_T2B Top to bottom
+ */
+#define st7272a_get_display_mode_vdir(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A_DISPLAY_MODE_VDIR_FIELD_MASK )
+/**
+ * @brief reads the HDIR field from the DISPLAY_MODE register 
+ * @param dev ptr to st7272a device
+ * @return ST7272A_DISPLAY_MODE_HDIR_R2L Right to left
+ * @return ST7272A_DISPLAY_MODE_HDIR_L2R Left to Right
+ */
+#define st7272a_get_display_mode_hdir(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A_DISPLAY_MODE_HDIR_FIELD_MASK )
 /**
  * @brief reads the VDPOL field from the DISPLAY_MODE register 
  * @param dev ptr to st7272a device
  * @return ST7272A_DISPLAY_MODE_VDPOL_POS Positive Polarity
  * @return ST7272A_DISPLAY_MODE_VDPOL_NEG Negative Polarity
  */
-#define st7272a_get_display_mode_vdpol(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A__VDPOL_FIELD_MASK )
+#define st7272a_get_display_mode_vdpol(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A_DISPLAY_MODE_VDPOL_FIELD_MASK )
 /**
  * @brief reads the HDPOL field from the DISPLAY_MODE register 
  * @param dev ptr to st7272a device
  * @return ST7272A_DISPLAY_MODE_HDPOL_POS Positive Polarity
  * @return ST7272A_DISPLAY_MODE_HDPOL_NEG Positive Polarity
  */
-#define st7272a_get_display_mode_hdpol(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A__HDPOL_FIELD_MASK )
+#define st7272a_get_display_mode_hdpol(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A_DISPLAY_MODE_HDPOL_FIELD_MASK )
 /**
  * @brief reads the DEPOL field from the DISPLAY_MODE register 
  * @param dev ptr to st7272a device
  * @return ST7272A_DISPLAY_MODE_DEPOL_POS Positive Polarity
  * @return ST7272A_DISPLAY_MODE_DEPOL_NEG Positive Polarity
  */
-#define st7272a_get_display_mode_depol(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A__DEPOL_FIELD_MASK )
+#define st7272a_get_display_mode_depol(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A_DISPLAY_MODE_DEPOL_FIELD_MASK )
 /**
  * @brief reads the DCLKPOL field from the DISPLAY_MODE register 
  * @param dev ptr to st7272a device
  * @return ST7272A_DISPLAY_MODE_DCLKPOL_POS Positive Polarity
  * @return ST7272A_DISPLAY_MODE_DCLKPOL_NEG Positive Polarity
  */
-#define st7272a_get_display_mode_dclkpol(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A__DCLKPOL_FIELD_MASK )
+#define st7272a_get_display_mode_dclkpol(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A_DISPLAY_MODE_DCLKPOL_FIELD_MASK )
 /**
  * @brief reads the PICSEC field from the BIST_FNCTN_SETTING register 
  * @param dev ptr to st7272a device
@@ -240,7 +276,7 @@
  * @return ST7272A_BIST_FNCTN_SETTING_PICSEC_1500MS 1500 ms
  * @return ST7272A_BIST_FNCTN_SETTING_PICSEC_2000MS 2000 ms
  */
-#define st7272a_get_bist_fnctn_setting_picsec(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mBistFnctnSetting, ST7272A__PICSEC_FIELD_MASK )
+#define st7272a_get_bist_fnctn_setting_picsec(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mBistFnctnSetting, ST7272A_BIST_FNCTN_SETTING_PICSEC_FIELD_MASK )
 
 
 /*******************************************************************************
@@ -253,75 +289,96 @@
  * @option ST7272A_DISP_CTRL_DISP_NORMAL Normal display mode
  * @option ST7272A_DISP_CTRL_DISP_STANDBY Standby mode
  */
-#define st7272a_set_disp_ctrl_disp(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mDispCtrl, ST7272A__DISP_FIELD_MASK , (val) )
+#define st7272a_set_disp_ctrl_disp(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mDispCtrl, ST7272A_DISP_CTRL_DISP_FIELD_MASK , (val) )
 /**
  * @brief writes the CONTRAST field to the CONTRAST register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_set_contrast(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mContrast, ST7272A__CONTRAST_FIELD_MASK , (val) )
+#define st7272a_set_contrast(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mContrast, ST7272A_CONTRAST_FIELD_MASK , (val) )
 /**
  * @brief writes the SUB_CONTRAST_R field to the SUB_CONTRAST_R register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_set_sub_contrast_r(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mSubContrastR, ST7272A__SUB_CONTRAST_R_FIELD_MASK , (val) )
+#define st7272a_set_sub_contrast_r(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mSubContrastR, ST7272A_SUB_CONTRAST_R_FIELD_MASK , (val) )
 /**
  * @brief writes the SUB_CONTRAST_B field to the SUB_CONTRAST_B register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_set_sub_contrast_b(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mSubContrastB, ST7272A__SUB_CONTRAST_B_FIELD_MASK , (val) )
+#define st7272a_set_sub_contrast_b(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mSubContrastB, ST7272A_SUB_CONTRAST_B_FIELD_MASK , (val) )
 /**
  * @brief writes the BRIGHTNESS field to the BRIGHTNESS register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_set_brightness(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mBrightness, ST7272A__BRIGHTNESS_FIELD_MASK , (val) )
+#define st7272a_set_brightness(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mBrightness, ST7272A_BRIGHTNESS_FIELD_MASK , (val) )
 /**
  * @brief writes the SUB_BRIGHTNESS_R field to the SUB_BRIGHTNESS_R register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_set_sub_brightness_r(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mSubBrightnessR, ST7272A__SUB_BRIGHTNESS_R_FIELD_MASK , (val) )
+#define st7272a_set_sub_brightness_r(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mSubBrightnessR, ST7272A_SUB_BRIGHTNESS_R_FIELD_MASK , (val) )
 /**
  * @brief writes the SUB_BRIGHTNESS_B field to the SUB_BRIGHTNESS_B register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_set_sub_brightness_b(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mSubBrightnessB, ST7272A__SUB_BRIGHTNESS_B_FIELD_MASK , (val) )
+#define st7272a_set_sub_brightness_b(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mSubBrightnessB, ST7272A_SUB_BRIGHTNESS_B_FIELD_MASK , (val) )
 /**
  * @brief writes the H_BLANKING field to the H_BLANKING register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_set_h_blanking(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mHBlanking, ST7272A__H_BLANKING_FIELD_MASK , (val) )
+#define st7272a_set_h_blanking(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mHBlanking, ST7272A_H_BLANKING_FIELD_MASK , (val) )
 /**
  * @brief writes the V_BLANKING field to the V_BLANKING register 
  * @param dev ptr to st7272a device
  */
-#define st7272a_set_v_blanking(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mVBlanking, ST7272A__V_BLANKING_FIELD_MASK , (val) )
+#define st7272a_set_v_blanking(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mVBlanking, ST7272A_V_BLANKING_FIELD_MASK , (val) )
+/**
+ * @brief writes the MVA_TN field to the DISPLAY_MODE register 
+ * @param dev ptr to st7272a device
+ * @option ST7272A_DISPLAY_MODE_MVA_TN_TN TN mode
+ * @option ST7272A_DISPLAY_MODE_MVA_TN_VA VA mode
+ */
+#define st7272a_set_display_mode_mva_tn(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A_DISPLAY_MODE_MVA_TN_FIELD_MASK , (val) )
+/**
+ * @brief writes the VDIR field to the DISPLAY_MODE register 
+ * @param dev ptr to st7272a device
+ * @option ST7272A_DISPLAY_MODE_VDIR_B2T Bottom To Top
+ * @option ST7272A_DISPLAY_MODE_VDIR_T2B Top to bottom
+ */
+#define st7272a_set_display_mode_vdir(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A_DISPLAY_MODE_VDIR_FIELD_MASK , (val) )
+/**
+ * @brief writes the HDIR field to the DISPLAY_MODE register 
+ * @param dev ptr to st7272a device
+ * @option ST7272A_DISPLAY_MODE_HDIR_R2L Right to left
+ * @option ST7272A_DISPLAY_MODE_HDIR_L2R Left to Right
+ */
+#define st7272a_set_display_mode_hdir(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A_DISPLAY_MODE_HDIR_FIELD_MASK , (val) )
 /**
  * @brief writes the VDPOL field to the DISPLAY_MODE register 
  * @param dev ptr to st7272a device
  * @option ST7272A_DISPLAY_MODE_VDPOL_POS Positive Polarity
  * @option ST7272A_DISPLAY_MODE_VDPOL_NEG Negative Polarity
  */
-#define st7272a_set_display_mode_vdpol(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A__VDPOL_FIELD_MASK , (val) )
+#define st7272a_set_display_mode_vdpol(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A_DISPLAY_MODE_VDPOL_FIELD_MASK , (val) )
 /**
  * @brief writes the HDPOL field to the DISPLAY_MODE register 
  * @param dev ptr to st7272a device
  * @option ST7272A_DISPLAY_MODE_HDPOL_POS Positive Polarity
  * @option ST7272A_DISPLAY_MODE_HDPOL_NEG Positive Polarity
  */
-#define st7272a_set_display_mode_hdpol(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A__HDPOL_FIELD_MASK , (val) )
+#define st7272a_set_display_mode_hdpol(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A_DISPLAY_MODE_HDPOL_FIELD_MASK , (val) )
 /**
  * @brief writes the DEPOL field to the DISPLAY_MODE register 
  * @param dev ptr to st7272a device
  * @option ST7272A_DISPLAY_MODE_DEPOL_POS Positive Polarity
  * @option ST7272A_DISPLAY_MODE_DEPOL_NEG Positive Polarity
  */
-#define st7272a_set_display_mode_depol(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A__DEPOL_FIELD_MASK , (val) )
+#define st7272a_set_display_mode_depol(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A_DISPLAY_MODE_DEPOL_FIELD_MASK , (val) )
 /**
  * @brief writes the DCLKPOL field to the DISPLAY_MODE register 
  * @param dev ptr to st7272a device
  * @option ST7272A_DISPLAY_MODE_DCLKPOL_POS Positive Polarity
  * @option ST7272A_DISPLAY_MODE_DCLKPOL_NEG Positive Polarity
  */
-#define st7272a_set_display_mode_dclkpol(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A__DCLKPOL_FIELD_MASK , (val) )
+#define st7272a_set_display_mode_dclkpol(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mDisplayMode, ST7272A_DISPLAY_MODE_DCLKPOL_FIELD_MASK , (val) )
 /**
  * @brief writes the PICSEC field to the BIST_FNCTN_SETTING register 
  * @param dev ptr to st7272a device
@@ -330,7 +387,7 @@
  * @option ST7272A_BIST_FNCTN_SETTING_PICSEC_1500MS 1500 ms
  * @option ST7272A_BIST_FNCTN_SETTING_PICSEC_2000MS 2000 ms
  */
-#define st7272a_set_bist_fnctn_setting_picsec(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mBistFnctnSetting, ST7272A__PICSEC_FIELD_MASK , (val) )
+#define st7272a_set_bist_fnctn_setting_picsec(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mBistFnctnSetting, ST7272A_BIST_FNCTN_SETTING_PICSEC_FIELD_MASK , (val) )
 
 /*******************************************************************************
   Configs                                                                            
@@ -341,6 +398,15 @@
  * @param dev ptr to st7272a device
  */
 #define ST7272A_LOAD_CONFIG_DEFAULT(dev) \
+st7272a_write_reg( (dev), &(dev)->mDispCtrl, 0x00); /* DISP: STANDBY , GRB: 0 */     \
+MRT_DELAY_MS(100);                               /* Delay for DISP_CTRL */ \
+st7272a_write_reg( (dev), &(dev)->mDispCtrl, 0x09); /* DISP: NORMAL , GRB: 1 */      \
+
+/**
+ * @brief Standard setup
+ * @param dev ptr to st7272a device
+ */
+#define ST7272A_LOAD_CONFIG_FLIP(dev) \
 st7272a_write_reg( (dev), &(dev)->mDispCtrl, 0x00); /* DISP: STANDBY , GRB: 0 */     \
 MRT_DELAY_MS(100);                               /* Delay for DISP_CTRL */ \
 st7272a_write_reg( (dev), &(dev)->mDispCtrl, 0x09); /* DISP: NORMAL , GRB: 1 */      \

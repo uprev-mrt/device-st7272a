@@ -43,14 +43,32 @@ fields:
                 - STANDBY: {val: 0, desc: Standby mode }
 
     - DISPLAY_MODE:  #create flags and fields in the DUMMY register
+        - MVA_TN:
+            bit: 7
+            desc: TN v VA mode select
+            values: 
+                - TN: {val: 0, desc: TN mode}
+                - VA: {val: 1, desc: VA mode}
 
+        - VDIR: 
+            bit: 6
+            desc: Vertical Scan Direction
+            values: 
+                - B2T: {val: 0, desc: Bottom To Top}
+                - T2B: {val: 1, desc: Top to bottom}
+
+        - HDIR: 
+            bit: 5 
+            desc: Horizontal Scan Direction
+            values: 
+                - R2L: {val: 0, desc: Right to left}
+                - L2R: {val: 1, desc: Left to Right}
         - VDPOL: 
-                bit: 3 
-                desc: VSYNC Polarity
-                values: 
-                    - POS: {val: 0, desc: Positive Polarity}
-                    - NEG: {val: 1, desc: Negative Polarity}
-
+            bit: 3 
+            desc: VSYNC Polarity
+            values: 
+                - POS: {val: 0, desc: Positive Polarity}
+                - NEG: {val: 1, desc: Negative Polarity}
         - HDPOL: 
             bit: 2 
             desc: HSYNC Polarity
@@ -96,6 +114,13 @@ configs:
         registers:
             -  DISP_CTRL: {DISP: STANDBY, GRB: 0, delay: 100}
             -  DISP_CTRL: {DISP: NORMAL, GRB: 1}
+
+    - flip:
+        desc: Standard setup
+        registers:
+            -  DISP_CTRL: {DISP: STANDBY, GRB: 0, delay: 100}
+            -  DISP_CTRL: {DISP: NORMAL, GRB: 1}
+    
             
 
 
